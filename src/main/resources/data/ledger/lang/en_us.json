@@ -42,6 +42,7 @@
 
     "error.ledger.no_cached_params": "No cached search. Try preforming a search first",
     "error.ledger.command.no_results": "No results for that search",
+    "error.ledger.rollback.item_despawn_permission": "You don't have permission to roll back despawned items",
     "error.ledger.no_more_pages": "No more pages",
     "error.ledger.unknown_param": "Unknown parameter %s",
     "error.ledger.no_preview": "No current preview",

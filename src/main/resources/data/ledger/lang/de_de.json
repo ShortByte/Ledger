@@ -41,6 +41,7 @@
 
     "error.ledger.no_cached_params": "Keine Suche gefunden. Führe zuerst eine Suche durch",
     "error.ledger.command.no_results": "Keine Einträge für diese Suche",
+    "error.ledger.rollback.item_despawn_permission": "Du hast keine Berechtigung, despawnte Items zurückzusetzen",
     "error.ledger.no_more_pages": "Keine weiteren Seiten",
     "error.ledger.unknown_param": "Unbekannte Angaben %s",
     "error.ledger.no_preview": "Keine laufende Vorschau",
