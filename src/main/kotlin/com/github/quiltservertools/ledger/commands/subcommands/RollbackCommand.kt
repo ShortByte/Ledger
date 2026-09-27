@@ -1,6 +1,7 @@
 package com.github.quiltservertools.ledger.commands.subcommands
 
 import com.github.quiltservertools.ledger.Ledger
+import com.github.quiltservertools.ledger.actions.ItemDespawnActionType
 import com.github.quiltservertools.ledger.actionutils.ActionSearchParams
 import com.github.quiltservertools.ledger.commands.BuildableCommand
 import com.github.quiltservertools.ledger.commands.CommandConsts
@@ -81,6 +82,7 @@ object RollbackCommand : BuildableCommand {
     fun rollback(context: Context, params: ActionSearchParams): Int {
         val source = context.source
         params.ensureSpecific()
+        ItemDespawnActionType.restrictRollback(source, params)
         Ledger.launch {
             MessageUtils.warnBusy(source)
             val actions = DatabaseManager.selectRollback(params)
