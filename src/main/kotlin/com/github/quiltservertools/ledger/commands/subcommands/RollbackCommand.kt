@@ -51,6 +51,11 @@ object RollbackCommand : BuildableCommand {
                 return@launch
             }
 
+            if (action is ItemDespawnActionType && !ItemDespawnActionType.canRollback(source)) {
+                source.sendFailure(Component.translatable("error.ledger.rollback.item_despawn_permission"))
+                return@launch
+            }
+
             source.level.launchMain {
                 if (!action.rollback(source.server)) {
                     source.sendFailure(
