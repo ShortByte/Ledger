@@ -8,6 +8,7 @@ import com.github.quiltservertools.ledger.actions.EntityChangeActionType
 import com.github.quiltservertools.ledger.actions.EntityDismountActionType
 import com.github.quiltservertools.ledger.actions.EntityKillActionType
 import com.github.quiltservertools.ledger.actions.EntityMountActionType
+import com.github.quiltservertools.ledger.actions.ItemDespawnActionType
 import com.github.quiltservertools.ledger.actions.ItemDropActionType
 import com.github.quiltservertools.ledger.actions.ItemInsertActionType
 import com.github.quiltservertools.ledger.actions.ItemPickUpActionType
@@ -155,6 +156,16 @@ object ActionFactory {
 
         action.oldObjectState = entity.createNbt().toString()
         action.sourceProfile = source.nameAndId()
+
+        return action
+    }
+
+    fun itemDespawnAction(entity: ItemEntity): ItemDespawnActionType {
+        val action = ItemDespawnActionType()
+
+        setItemData(action, entity.blockPosition(), entity.level(), entity.item, Sources.DESPAWN)
+
+        action.oldObjectState = entity.createNbt().toString()
 
         return action
     }
