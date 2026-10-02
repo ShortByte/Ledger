@@ -23,6 +23,7 @@
         "FrostWalkerEnchantmentMixin",
         "HoneycombItemMixin",
         "InventoryMixin",
+        "ItemStackMixin",
         "JukeboxPlayableMixin",
         "LilyPadBlockMixin",
         "PortalShapeMixin",
