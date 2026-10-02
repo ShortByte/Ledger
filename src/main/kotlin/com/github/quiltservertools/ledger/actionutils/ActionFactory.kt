@@ -8,6 +8,7 @@ import com.github.quiltservertools.ledger.actions.EntityChangeActionType
 import com.github.quiltservertools.ledger.actions.EntityDismountActionType
 import com.github.quiltservertools.ledger.actions.EntityKillActionType
 import com.github.quiltservertools.ledger.actions.EntityMountActionType
+import com.github.quiltservertools.ledger.actions.ItemBreakActionType
 import com.github.quiltservertools.ledger.actions.ItemDropActionType
 import com.github.quiltservertools.ledger.actions.ItemInsertActionType
 import com.github.quiltservertools.ledger.actions.ItemPickUpActionType
@@ -155,6 +156,22 @@ object ActionFactory {
 
         action.oldObjectState = entity.createNbt().toString()
         action.sourceProfile = source.nameAndId()
+
+        return action
+    }
+
+    fun itemBreakAction(stack: ItemStack, player: Player): ItemBreakActionType {
+        val action = ItemBreakActionType()
+
+        // Logged with one durability left, so a rollback hands back a usable item instead of one
+        // that breaks again on its next use
+        val restoredStack = stack.copy().apply { damageValue = maxDamage - 1 }
+        val entity = ItemEntity(player.level(), player.x, player.y, player.z, restoredStack)
+
+        setItemData(action, player.blockPosition(), player.level(), restoredStack, Sources.PLAYER)
+
+        action.oldObjectState = entity.createNbt().toString()
+        action.sourceProfile = player.nameAndId()
 
         return action
     }
