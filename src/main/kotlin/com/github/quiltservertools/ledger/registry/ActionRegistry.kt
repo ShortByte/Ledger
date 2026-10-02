@@ -34,6 +34,7 @@ object ActionRegistry {
         registerActionType { ItemPickUpActionType() }
         registerActionType { ItemDropActionType() }
         registerActionType { ItemDespawnActionType() }
+        registerActionType { ItemBreakActionType() }
         registerActionType { EntityKillActionType() }
         registerActionType { EntityChangeActionType() }
         registerActionType { EntityMountActionType() }
