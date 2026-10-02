@@ -62,6 +62,7 @@
     "text.ledger.action.item-pick-up": "picked up",
     "text.ledger.action.item-drop": "dropped",
     "text.ledger.action.item-despawn": "despawned",
+    "text.ledger.action.item-break": "wore out",
     "text.ledger.action.entity-kill": "killed",
     "text.ledger.action.entity-change": "changed",
     "text.ledger.action.entity-mount": "mounted",
