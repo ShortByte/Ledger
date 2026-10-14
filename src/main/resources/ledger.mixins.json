@@ -58,6 +58,7 @@
         "blocks.GrowingPlantHeadBlockMixin",
         "blocks.IceBlockMixin",
         "blocks.JukeboxBlockMixin",
+        "blocks.LavaFluidMixin",
         "blocks.LeavesBlockMixin",
         "blocks.LeverBlockMixin",
         "blocks.LiquidBlockMixin",
