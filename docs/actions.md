@@ -11,6 +11,7 @@ These are the currently logged action types:
 - item-drop
 - item-despawn
 - item-break
+- item-rename
 - entity-killed
 - entity-mount
 - entity-dismount

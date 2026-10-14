@@ -56,6 +56,7 @@
     "text.ledger.action.item-remove": "entfernt",
     "text.ledger.action.item-despawn": "despawnt",
     "text.ledger.action.item-break": "verschlissen",
+    "text.ledger.action.item-rename": "umbenannt",
     "text.ledger.action.entity-kill": "getötet",
 
     "text.ledger.network.protocols_mismatched": "Keine passende Protokoll-Version: Client-Mod ist Ledger Protokoll-Version %d und die Client Version ist %d",

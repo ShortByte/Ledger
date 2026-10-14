@@ -14,6 +14,7 @@ import com.github.quiltservertools.ledger.actions.ItemDropActionType
 import com.github.quiltservertools.ledger.actions.ItemInsertActionType
 import com.github.quiltservertools.ledger.actions.ItemPickUpActionType
 import com.github.quiltservertools.ledger.actions.ItemRemoveActionType
+import com.github.quiltservertools.ledger.actions.ItemRenameActionType
 import com.github.quiltservertools.ledger.utility.NbtUtils
 import com.github.quiltservertools.ledger.utility.NbtUtils.createNbt
 import com.github.quiltservertools.ledger.utility.Sources
@@ -182,6 +183,22 @@ object ActionFactory {
         setItemData(action, player.blockPosition(), player.level(), restoredStack, Sources.PLAYER)
 
         action.oldObjectState = entity.createNbt().toString()
+        action.sourceProfile = player.nameAndId()
+
+        return action
+    }
+
+    fun itemRenameAction(
+        player: Player,
+        pos: BlockPos,
+        oldStack: ItemStack,
+        newStack: ItemStack,
+    ): ItemRenameActionType {
+        val action = ItemRenameActionType()
+
+        setItemData(action, pos, player.level(), newStack, Sources.PLAYER)
+
+        action.oldObjectState = oldStack.createNbt(player.level().registryAccess()).toString()
         action.sourceProfile = player.nameAndId()
 
         return action
